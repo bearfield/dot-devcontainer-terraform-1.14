@@ -1,0 +1,79 @@
+{
+    "name": "terraform-1.14",
+    "image": "ghcr.io/bearfield/terraform:1.14",
+    "remoteUser": "${localEnv:USER}",
+    "mounts": [
+        "source=${localEnv:HOME}/devcontainer_conf/.gitconfig_linux,target=/home/${localEnv:USER}/.gitconfig,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.config/gcloud,target=/home/${localEnv:USER}/.config/gcloud,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.ssh,target=/home/${localEnv:USER}/.ssh,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.claude/CLAUDE.md,target=/home/${localEnv:USER}/.claude/CLAUDE.md,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.claude/settings.json,target=/home/${localEnv:USER}/.claude/settings.json,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/Documents/Cline,target=/home/${localEnv:USER}/Cline,type=bind,consistency=cached,readonly"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "version": "latest",
+            "enableNonRootDocker": "true",
+            "moby": "true"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "fish": {
+                        "path": "fish"
+                    }
+                },
+                "terminal.integrated.fontFamily": "Hack Nerd Font Mono,Source Code Pro for Powerline",
+                "workbench.colorCustomizations": {
+                    "statusBar.background": "#7B42BC",
+                    "statusBar.foreground": "#FFFFFF"
+                },
+                "python.defaultInterpreterPath": "uv",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.linting.flake8Enabled": true,
+                "python.linting.mypyEnabled": true,
+                "python.linting.lintOnSave": true,
+                "python.formatting.provider": "black",
+                "python.linting.pylintArgs": ["--max-line-length=100"],
+                "python.linting.flake8Args": ["--max-line-length=100"],
+                "python.linting.mypyArgs": ["--ignore-missing-imports"],
+                "[terraform]": {
+                    "editor.formatOnSave": true,
+                    "editor.suggest.preview": true,
+                    "editor.defaultFormatter": "hashicorp.terraform",
+                    "editor.formatOnSaveMode": "file"
+                },
+                "[terraform-vars]": {
+                    "editor.defaultFormatter": "hashicorp.terraform",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnSaveMode": "file"
+                },
+                "terraform.codelens.referenceCount": true
+            },
+            "extensions": [
+                "wayou.vscode-todo-highlight",
+                "redhat.vscode-yaml",
+                "timonwong.shellcheck",
+                "foxundermoon.shell-format",
+                "github.copilot",
+                "bmalehorn.vscode-fish",
+                "ms-vscode.makefile-tools",
+                "eamodio.gitlens",
+                "github.vscode-pull-request-github",
+                "ms-azuretools.vscode-docker",
+                "docker.docker",
+                "github.vscode-github-actions",
+                "github.copilot-chat",
+                "vstirbu.vscode-mermaid-preview",
+                "anthropic.claude-code",
+                "aquasecurityofficial.trivy-vulnerability-scanner",
+                "ms-python.python",
+                "saoudrizwan.claude-dev",
+                "hashicorp.terraform"
+            ]
+        }
+    }
+}
