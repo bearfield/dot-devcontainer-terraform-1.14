@@ -1,4 +1,4 @@
-# AGENTS.md
+# CLAUDE.md
 
 このファイルは、AIエージェント（Claude、Copilot、Gemini等）がこのリポジトリで作業する際のガイドラインを提供します。
 
@@ -20,7 +20,7 @@
 ├── LICENSE
 ├── Makefile                 # ローカルビルド用コマンド
 ├── README.md                # プロジェクトドキュメント
-└── AGENTS.md                # このファイル
+└── CLAUDE.md                # このファイル
 ```
 
 ## 重要なファイル
